@@ -17,7 +17,7 @@ llm = ChatOpenAI(
 
 # creating a prompt template
 prompt = ChatPromptTemplate.from_template(
-    "What is the capital of {country}?"
+    "{query}"
 )
 
 # output parser
@@ -25,11 +25,11 @@ output_parser = StrOutputParser()
 
 chain = prompt | llm | output_parser
 
-user_prompt = input("Enter a country: ")
+user_prompt = input("Enter your query: ")
 
 # invoking the chain with token usage tracking
 with get_openai_callback() as cb:
-    result = chain.invoke({"country": user_prompt})
+    result = chain.invoke({"query": user_prompt})
     print(result)
     print("\n--- Token Usage ---")
     print(f"Prompt Tokens: {cb.prompt_tokens}")
