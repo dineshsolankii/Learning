@@ -1,8 +1,42 @@
-#Langchain
-langchain
-langchain-openai
-openai
-python-dotenv
-langchain-community
-langchain-core
-faiss-cpu # for local vector store
+# =============================================================================
+# LangChain Mastery — Requirements
+# =============================================================================
+# Install all: pip install -r requirements.txt
+
+# --- Core LangChain ---
+langchain                   # Core framework (chains, agents, memory)
+langchain-core              # Base abstractions: Runnables, Messages, Prompts
+langchain-openai            # ChatOpenAI, OpenAIEmbeddings
+langchain-community         # Community integrations: FAISS, loaders, caches
+openai                      # Underlying OpenAI SDK (used by langchain-openai)
+
+# --- Environment ---
+python-dotenv               # Load .env file for API key management
+
+# --- Vector Store ---
+faiss-cpu                   # Local in-memory vector store (no server needed)
+                            # Use faiss-gpu if you have a CUDA GPU
+
+# --- LangGraph ---
+langgraph                   # Graph-based agent framework (Part 8)
+
+# --- Document Loaders ---
+pypdf                       # PDF loader (PyPDFLoader)
+docx2txt                    # Word document loader
+unstructured                # General-purpose document loader (HTML, email, etc.)
+beautifulsoup4              # Required by WebBaseLoader for HTML scraping
+
+# --- Embeddings & Math ---
+numpy                       # Cosine similarity calculations (Part 4)
+
+# --- Caching ---
+# SQLiteCache uses Python's built-in sqlite3 — no extra package needed
+# For Redis cache: pip install redis langchain-redis
+
+# --- Production ---
+pydantic-settings           # BaseSettings — config from env vars (Part 9)
+pytest                      # Unit testing framework (Part 9)
+
+# --- Tool Integrations ---
+wikipedia                   # WikipediaQueryRun tool (Part 6)
+duckduckgo-search           # DuckDuckGoSearchRun tool (Part 6)
