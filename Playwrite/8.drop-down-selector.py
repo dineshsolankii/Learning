@@ -4,7 +4,6 @@ with sync_playwright() as p:
     # Launch browser
     browser = p.chromium.launch(headless=False)
     page = browser.new_page()
-
     # Navigate to the W3Schools TryIt editor
     page.goto("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select")
     # Wait for iframe to be present
@@ -15,5 +14,4 @@ with sync_playwright() as p:
     iframe.locator("select").select_option("saab")
     # Pause so we can see the change
     page.wait_for_timeout(3000)
-
     browser.close()
