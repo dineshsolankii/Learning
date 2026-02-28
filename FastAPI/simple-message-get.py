@@ -1,6 +1,9 @@
+# import fastapi
+# app = fastapi.FastAPI()
+
 from fastapi import FastAPI
-app=FastAPI()
+app = FastAPI() # Fast api instance is "app"
 
 @app.get("/")
-def read_root():
-    return {"Hello": "World"}
+def method_get():
+    return {"message": "Hello World"}
