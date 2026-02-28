@@ -16,4 +16,4 @@ async def read_posts():
 @app.post("/postrequest")
 async def create_post(payload: dict = Body(...)):
     print(payload)
-    return {"message": "Post created"}
+    return {"message": f"My name is {payload['title']} and my Designation is {payload['designation']}"}
